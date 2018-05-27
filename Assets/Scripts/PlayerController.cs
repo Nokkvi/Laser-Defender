@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float padding = 0.5f;
     public float projectileSpeed;
+    public float firingRate = 0.2f;
 
 	float xmin;
 	float xmax;
@@ -39,7 +40,11 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Fire();
+            InvokeRepeating("Fire", 0.000001f, firingRate);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            CancelInvoke("Fire");
         }
 
         //Restrict player to placespace
