@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
-	public float speed;
+    public GameObject laserPrefab;
+    public float speed;
     public float padding = 0.5f;
+    public float projectileSpeed;
 
 	float xmin;
 	float xmax;
@@ -18,6 +19,12 @@ public class PlayerController : MonoBehaviour {
         xmin = leftmost.x + padding;
         xmax = rightmost.x - padding;
     }
+
+    void Fire()
+    {
+        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+        laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,6 +36,11 @@ public class PlayerController : MonoBehaviour {
 		{
 			transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
 		}
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
 
         //Restrict player to placespace
         float newX = Mathf.Clamp(transform.position.x, xmin, xmax);
