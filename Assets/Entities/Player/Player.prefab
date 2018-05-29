@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4277100321043444}
   - component: {fileID: 212261387723774960}
   - component: {fileID: 114701672000147222}
-  - component: {fileID: 61863937094838292}
   - component: {fileID: 50122139436293572}
-  m_Layer: 0
+  - component: {fileID: 60211764060195252}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61863937094838292
-BoxCollider2D:
+--- !u!60 &60211764060195252
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -85,9 +85,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.98, y: 0.75}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.07, y: 0.375}
+      - {x: -0.089999996, y: 0.375}
+      - {x: -0.41, y: -0.095}
+      - {x: -0.48999998, y: -0.185}
+      - {x: -0.48999998, y: -0.315}
+      - {x: -0.19, y: -0.375}
+      - {x: 0.19999999, y: -0.375}
+      - {x: 0.48999998, y: -0.325}
+      - {x: 0.48999998, y: -0.175}
+      - {x: 0.14999999, y: 0.21499999}
 --- !u!114 &114701672000147222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,6 +114,7 @@ MonoBehaviour:
   padding: 0.5
   projectileSpeed: 5
   firingRate: 0.2
+  health: 250
 --- !u!212 &212261387723774960
 SpriteRenderer:
   m_ObjectHideFlags: 1

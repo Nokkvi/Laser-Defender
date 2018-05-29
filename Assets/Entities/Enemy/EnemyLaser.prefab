@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50060024285981734}
   - component: {fileID: 61608683645677564}
   - component: {fileID: 114242055828758686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

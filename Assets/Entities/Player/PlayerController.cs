@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         Projectile missile = collider.gameObject.GetComponent<Projectile>();
-        if (missile && missile.isEnemy)
+        if (missile)
         {
             health -= missile.GetDamage();
             missile.Hit();
