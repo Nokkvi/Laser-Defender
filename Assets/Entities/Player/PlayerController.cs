@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public float padding = 0.5f;
     public float projectileSpeed;
     public float firingRate = 0.2f;
+    public float health = 250;
 
 	float xmin;
 	float xmax;
@@ -19,6 +20,20 @@ public class PlayerController : MonoBehaviour {
         Vector3 rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
         xmin = leftmost.x + padding;
         xmax = rightmost.x - padding;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        Projectile missile = collider.gameObject.GetComponent<Projectile>();
+        if (missile && missile.isEnemy)
+        {
+            health -= missile.GetDamage();
+            missile.Hit();
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void Fire()
