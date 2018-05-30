@@ -443,6 +443,7 @@ MonoBehaviour:
   width: 12.42
   height: 5.91
   speed: 5
+  spawnDelay: 0.5
 --- !u!1 &1814577212
 GameObject:
   m_ObjectHideFlags: 0
