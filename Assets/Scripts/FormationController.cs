@@ -7,6 +7,7 @@ public class FormationController : MonoBehaviour {
     public float width = 10f;
     public float height = 5f;
     public float speed = 5f;
+    public float spawnDelay = 0.5f;
 
     private bool movingRight = false;
     private float xmax;
@@ -21,7 +22,7 @@ public class FormationController : MonoBehaviour {
         xmax = rightEdge.x;
         xmin = leftEdge.x;
 
-        SpawnEnemies();
+        SpawnUntilFull();
     }
 
     public void OnDrawGizmos ()
@@ -52,9 +53,37 @@ public class FormationController : MonoBehaviour {
         if (AllMembersDead())
         {
             Debug.Log("Empty Formation");
-            SpawnEnemies();
+            SpawnUntilFull();
         }
 	}
+
+    void SpawnUntilFull()
+    {
+        Transform freePosition = NextFreePosition();
+        if (freePosition)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = freePosition;
+        }
+        if (NextFreePosition())
+        {
+            Invoke("SpawnUntilFull", spawnDelay);
+        }
+        
+        
+    }
+
+    Transform NextFreePosition()
+    {
+        foreach(Transform childPositionGameObject in transform)
+        {
+            if (childPositionGameObject.childCount == 0)
+            {
+                return childPositionGameObject;
+            }
+        }
+        return null;
+    }
 
     bool AllMembersDead()
     {
