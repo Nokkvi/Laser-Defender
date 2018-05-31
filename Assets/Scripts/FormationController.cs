@@ -22,7 +22,7 @@ public class FormationController : MonoBehaviour {
         xmax = rightEdge.x;
         xmin = leftEdge.x;
 
-        SpawnUntilFull();
+        SpawnEnemies();
     }
 
     public void OnDrawGizmos ()
