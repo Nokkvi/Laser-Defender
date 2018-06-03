@@ -45,5 +45,6 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -projectileSpeed, 0);
+        GetComponent<AudioSource>().Play();
     }
 }
