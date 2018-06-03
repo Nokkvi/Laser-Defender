@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour {
             if (health <= 0)
             {
                 Destroy(gameObject);
+                LevelManager levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+                levelManager.LoadLevel("End Screen");
             }
         }
     }

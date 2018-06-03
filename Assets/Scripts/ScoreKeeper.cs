@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour {
 
-    public int score = 0;
+    public static int score = 0;
 
     private Text text;
 
     void Start()
     {
        text = GetComponent<Text>();
+        Reset();
     }
 
 	// Use this for initialization
@@ -21,9 +22,8 @@ public class ScoreKeeper : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public void Reset ()
+	public static void Reset ()
     {
         score = 0;
-        text.text = score.ToString();
     }
 }

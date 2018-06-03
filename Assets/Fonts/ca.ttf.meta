@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 819345665fcf25f42ac46590d43d2031
+guid: 79393d95cf5814543b53965c5c39e845
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: KenVector Future Thin
+  fontName: Cosmic Alien
   fontNames:
-  - KenVector Future Thin
+  - Cosmic Alien
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
