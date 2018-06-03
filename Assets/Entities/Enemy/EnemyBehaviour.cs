@@ -11,6 +11,9 @@ public class EnemyBehaviour : MonoBehaviour {
 
     private ScoreKeeper scoreKeeper;
 
+    public AudioClip fireSound;
+    public AudioClip deathSound;
+
     void Start()
     {
         scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
@@ -28,6 +31,7 @@ public class EnemyBehaviour : MonoBehaviour {
             {
                 Destroy(gameObject);
                 scoreKeeper.Score(killReward);
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
             }
         }
     }
@@ -45,6 +49,6 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -projectileSpeed, 0);
-        GetComponent<AudioSource>().Play();
+        AudioSource.PlayClipAtPoint(fireSound, transform.position);
     }
 }

@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 	float xmin;
 	float xmax;
 
+    public AudioClip fireSound;
+
 	// Use this for initialization
 	void Start () {
         float distance = transform.position.z - Camera.main.transform.position.z;
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour {
     {
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
-        GetComponent<AudioSource>().Play();
+        AudioSource.PlayClipAtPoint(fireSound, transform.position);
     }
 	
 	// Update is called once per frame
